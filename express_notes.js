@@ -1,17 +1,5 @@
 Skip to content
 
-Search…
-All gists
-GitHub
-New gist
-@MukundhBhushan 
-0 @MukundhBhushanMukundhBhushan/expressJS_notes.js
-Last active a month ago
- 
-<script src="https://gist.github.com/MukundhBhushan/afa187b3882bd160f91c0be6bbe15d78.js"></script>
-  
- Code  Revisions 12
- expressJS_notes.js
 // installing as as dev dependency
 npm install express --save
 npm install body-parser --save //used for reading form forms
