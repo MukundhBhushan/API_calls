@@ -252,7 +252,7 @@ const type2 = new GraphQLObjectType({
 
 
 
-<------------------connecting to front end------------------->
+<--------------------------------------------------------connecting to front end------------------------------------------------------>
     //create a new folder for client under the main project folder
     //create a new angular project in this folder
 
@@ -317,13 +317,38 @@ const type2 = new GraphQLObjectType({
             
 
     //create a new component
-        import Apollo from 'apollo-angular';
-        import Observable from 'rxjs/observable';
-        import map from rxjs/operators;
+        import { Apollo } from 'apollo-angular';
+        import { Observable } from 'rxjs/Observable';
+        import { map } from 'rxjs/operators';
+
         import gql from 'graphql-tag';
-        import <types/class/interface name> form '<filepath>'
 
-            //in constructor
-            constructor(private apollo: Apollo) { }
+        import { <type name> } from '../types';
 
-    
+        export class ListComponent implements OnInit {
+        <var name>: Observable<<type name>[]>;
+        constructor(private apollo: Apollo) { }
+
+        ngOnInit() {
+            this.<var name> = this.apollo.watchQuery<Query>({
+            query: gql`
+                query <function in graphql file> {
+                    <psudo type1 name>(args:"<value>"){ //<psudo type1 name> found in the RootQuery under fields
+                <property1>,
+                <property2>,
+                <property3>{  //quring form linked data
+                    <property1 of linked data>
+                    <property2 of linked data>
+                }
+
+            } 
+            `
+            })
+            .valueChanges
+            .pipe(
+                map(result => result.data.allCourses)
+            );
+        }
+
+        }
+            
