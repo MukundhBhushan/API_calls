@@ -2,7 +2,7 @@ Skip to content
 
 // installing as as dev dependency
 npm install express --save
-npm install body-parser --save //used for reading form forms
+//npm install body-parser --save //used for reading form forms
 npm install ejs --save //templating engine
 npm install express-validator //for validating the express routes
 npm install mongojs --save //to connect ot mongodb
@@ -11,13 +11,13 @@ npm install mongojs --save //to connect ot mongodb
 //in the package.json file
 "dependencies":{
     "express":"*", //* for the laest version
-    "body-parser":"*"
+    //"body-parser":"*" //not needed for the new version of express
 }
 
 //starting of the app
 const express=require('express')
 const app=express()
-const bodyParser=require('body-parser')
+//const bodyParser=require('body-parser')
 const path = require('path')
 const expressValidator =require('express-validator')
 const mongojs = require('mongojs')
@@ -74,9 +74,10 @@ var <middleware name> = function(res,req,next){
 
 //body parser is used as a middleware
        //the require variable name is used when passing the arg to the middleware
-  
-        app.use(bodyParser.json());
-        app.use(bodyParser.urlencodered({extended:False}))
+       //body parser is now a part of express so no need of addtional body-parser
+    app.use(express.urlencoded({
+        extended: true
+    }));
   //<-----------files can also be add to use ------------------> 
         app.use('/<route link>',<template/file name>)
  //in the file express must be required and routes must be defined 
