@@ -1,11 +1,12 @@
 Skip to content
 
 // installing as as dev dependency
-npm install express --save
+npm install express
 //npm install body-parser --save //used for reading form forms
 npm install ejs --save //templating engine
 npm install express-validator //for validating the express routes
-npm install mongojs --save //to connect ot mongodb
+npm install mongojs //to connect ot mongodb
+npm install mongoose
 
 // if manually adding the library
 //in the package.json file
@@ -22,6 +23,10 @@ const path = require('path')
 const expressValidator =require('express-validator')
 const mongojs = require('mongojs')
 const db=mongojs(<db name>,[collection name])
+const mongoose = require("mongoose")
+
+mongoose.connect(connectionString);
+mongoose.Promise = global.Promise;
 
 //<do not forget to add the app listener line 135
 
